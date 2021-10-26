@@ -1,4 +1,4 @@
-public class Producer implements Simulation {
+public class Device implements Simulation {
     private TypeConsumption consumption;
 
     @Override
