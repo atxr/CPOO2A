@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Central extends Type1 {
+public class Central extends Producer {
     Central(double prod) {
-        super(new ArrayList<Double>(List.of(prod)));
+        super(new Type1(new ArrayList<Double>(List.of(prod))));
     }
 }

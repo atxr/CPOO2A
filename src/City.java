@@ -8,20 +8,34 @@ import java.util.ArrayList;
 public class City implements Simulation {
     
     /** List of all the houses in the city */
-    private ArrayList<Home> consumers;
+    private ArrayList<House> consumers;
     /** List of all the electricity producers of the city */
     private ArrayList<Producer> producers;
 
+    
+    public City() {
+        this(new ArrayList<>(), new ArrayList<>());
+    }
+    
     /**
      * Basic constructor of a city, with consumers and producers as parameters
      * 
      * @param consumers
      * @param producers
      */
-    public City(ArrayList<Home> consumers, ArrayList<Producer> producers) {
+    public City(ArrayList<House> consumers, ArrayList<Producer> producers) {
         this.consumers = consumers;
         this.producers = producers;
     }
+
+    public void addHouse(House h) {
+        consumers.add(h);
+    }
+
+    public void addProducer(Producer p) {
+        producers.add(p);
+    }
+
 
     /**
      * Compute the annual report of consumption of the city in the given filename, in CSV format

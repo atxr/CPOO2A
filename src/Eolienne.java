@@ -1,7 +1,7 @@
 import java.util.function.Function;
 
-public class Eolienne extends Type2 {
+public class Eolienne extends Producer {
     Eolienne(double prod) {
-        super(v -> {assert(v.length == 1); return v[0] ? prod : 0;});
+        super(new Type2(v -> {assert(v.length == 1); return v[0] ? prod : 0;}));
     }
 }
