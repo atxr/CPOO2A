@@ -7,6 +7,10 @@ public class Type2 implements TypeConsumption {
     /** Function f that describe the behavior of the consumption according to the external parameters */
     private Function<Weather, Float>  f;
 
+    /**
+     * Basic constructor
+     * @param f     function that return the device/producer power according to the weather 
+     */
     public Type2(Function<Weather, Float> f) {
         this.f = f;
     }

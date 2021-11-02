@@ -11,7 +11,11 @@ public class City extends Simulation {
     /** List of all the electricity producers of the city */
     private ArrayList<Producer> producers;
 
-    
+   
+    /**
+     * Default constructor with a city name
+     * @param name  the city name
+     */
     public City(String name) {
         this(new ArrayList<>(), new ArrayList<>());
         this.name = name;
@@ -28,20 +32,36 @@ public class City extends Simulation {
         this.producers = producers;
     }
 
+    /**
+     * Consumers getter
+     * @return consumers list of the city
+     */
     public ArrayList<House> getConsumers() {
         return this.consumers;
     }
 
+     /**
+     * Producers getter
+     * @return producers list of the city
+     */
     public ArrayList<Producer> getProducers() {
         return this.producers;
     }
 
-    public void addHouse(House h) {
-        consumers.add(h);
+    /**
+     * Add a house to the city
+     * @param house 
+     */
+    public void addHouse(House house) {
+        consumers.add(house);
     }
 
-    public void addProducer(Producer p) {
-        producers.add(p);
+    /**
+     * Add a producer to the city
+     * @param producer
+     */
+    public void addProducer(Producer producer) {
+        producers.add(producer);
     }
 
     @Override

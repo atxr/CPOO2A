@@ -1,8 +1,15 @@
 import java.util.ArrayList;
 
+/** Device class that represent a consumption device */
 public class Device extends Simulation {
+    /** Type of consumption of the device */
     private TypeConsumption consumption;
 
+    /**
+     * Basic constructor of the device class
+     * @param name          name of the device
+     * @param consumption   type of consumption
+     */
     public Device(String name, TypeConsumption consumption) {
         this.name = name;
         this.consumption = consumption;

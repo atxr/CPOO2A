@@ -2,8 +2,13 @@
 import java.util.ArrayList;
 
 public class Producer extends Simulation {
+    /** Type of consumption of the producer */
     private TypeConsumption consumption;
-
+    /**
+     * Basic constructor of a producer
+     * @param name          producer name
+     * @param consumption   type of consumption of the producer
+     */
     public Producer(String name, TypeConsumption consumption) {
         this.name = name;
         this.consumption = consumption;

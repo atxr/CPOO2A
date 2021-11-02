@@ -1,10 +1,14 @@
 import java.util.ArrayList;
 import java.util.List;
-
+/** House class, that represents an injection point with a list of devices */
 public class House extends Simulation {
-
+    /** List of devices in the injection point */
     private ArrayList<Device> devices;
 
+    /**
+     * Constructor with a house name
+     * @param name
+     */
     public House(String name) {
         devices = new ArrayList<>();
         this.name = name;
@@ -15,12 +19,19 @@ public class House extends Simulation {
         addDevice(new Device("Kitchen", new Type1(new ArrayList<>(List.of(12*60, 60, 7*60, 60, 3*60)), new ArrayList<>(List.of(0f, 10f, 0f, 10f, 0f)))));
     }
 
+    /**
+     * @return devices list
+     */
     ArrayList<Device> getDevices() {
         return this.devices;
     }
 
-    public void addDevice(Device d) {
-        devices.add(d);
+    /**
+     * Add a device to the devices list 
+     * @param device
+     */
+    public void addDevice(Device device) {
+        devices.add(device);
     }
 
     @Override
