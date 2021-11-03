@@ -1,11 +1,13 @@
 import java.util.ArrayList;
 
+import javax.swing.text.WrappedPlainView;
+
 /**
  * City class
  * Implements the Simulation interface
  * Model of a City, with electricity consumers and producers  
  */
-public class City implements Simulation {
+public class City extends Simulation {
     
     /** List of all the houses in the city */
     private ArrayList<House> consumers;
@@ -28,6 +30,14 @@ public class City implements Simulation {
         this.producers = producers;
     }
 
+    public ArrayList<House> getConsumers() {
+        return this.consumers;
+    }
+
+    public ArrayList<Producer> getProducers() {
+        return this.producers;
+    }
+
     public void addHouse(House h) {
         consumers.add(h);
     }
@@ -36,24 +46,39 @@ public class City implements Simulation {
         producers.add(p);
     }
 
-
-    /**
-     * Compute the annual report of consumption of the city in the given filename, in CSV format
-     * 
-     * @param filename output filename
-     */
-    public void annual_report(String filename) {
-        // TODO Auto-generated method stub
-        
+    @Override
+    public float get_consumption_min(int t, Weather w) {
+        float sum = 0;
+        for (House h: consumers) {
+            sum += h.get_consumption_min(t, w);
+        }
+        return sum;
     }
 
-    /**
-     * Compute the daily report of consumption of the city in the given filename, in CSV format
-     * 
-     * @param filename output filename
-     */
-    public void daily(String filename) {
-        // TODO Auto-generated method stub
-        
+    @Override
+    public float get_production_min(int t, Weather w) {
+        float sum = 0;
+        for (Producer p: producers) {
+            sum += p.get_production_min(t, w);
+        }
+        return sum;     
+    }
+
+    @Override
+    public float get_consumption_day(int d, ArrayList<Weather> ws) {
+        float sum = 0;
+        for (House h: consumers) {
+            sum += h.get_production_day(d, ws);
+        }
+        return sum;  
+    }
+
+    @Override
+    public float get_production_day(int d, ArrayList<Weather> ws) {
+        float sum = 0;
+        for (Producer p: producers) {
+            sum += p.get_production_day(d, ws);
+        }
+        return sum;  
     }
 }

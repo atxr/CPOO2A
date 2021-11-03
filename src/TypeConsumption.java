@@ -1,3 +1,3 @@
 public interface TypeConsumption {
-    public double getConsumption(double time);
+    public float getPower(int time, Weather weather);
 }

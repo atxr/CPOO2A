@@ -6,16 +6,15 @@ import java.util.ArrayList;
  */
 public class Type1 implements TypeConsumption {
 
-    private ArrayList<Double> power;
+    private ArrayList<Float> power;
 
-    public Type1(ArrayList<Double> power) {
+    public Type1(ArrayList<Float> power) {
         this.power = power;
     }
     
     @Override
-    public double getConsumption(double time) {
-        // TODO Auto-generated method stub
-        return 0;
+    public float getPower(int time, Weather w) {
+        return power.get(time % power.size());
     }
     
 }
