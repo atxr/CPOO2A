@@ -2,20 +2,24 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) throws Exception {
+        for (int i=0; i<10; i++) {
+            System.out.println(Math.random());
+        }
+
         City toulouse = new City("Toulouse");
-        toulouse.addProducer(new ContinuousProducer("Central", 1000000));
-        toulouse.addProducer(new WindTurbine(1000));
-        toulouse.addProducer(new SolarPanel(0.2f));
-        toulouse.addProducer(new SolarPanel(0.2f));
-        toulouse.addProducer(new SolarPanel(0.2f));
+        toulouse.addProducer(new ContinuousProducer("Central", 5000));
+        toulouse.addProducer(new WindTurbine(50));
+        int nb_panel = 50;
+        for (int k = 0; k < nb_panel; k++) {
+            toulouse.addProducer(new SolarPanel(0.2f));
+            toulouse.addProducer(new SolarPanel(0.2f));
+            toulouse.addProducer(new SolarPanel(0.2f));
+        }
 
-        int nb_house = 1000;
+        int nb_house = 500;
         for (int i = 0; i < nb_house; i++) {
-            House h1 = new House("House "+i);
-            h1.addDevice(new Heating("Heating", 1));
-            h1.addDevice(new ContinuousDevice("Fridge", 0.2f));
-            toulouse.addHouse(h1);
-
+            House h = new House("House " + i);
+            toulouse.addHouse(h);
         }
         ArrayList<ArrayList<Weather>> weather_year = Weather.generate_year_prediction();
 
