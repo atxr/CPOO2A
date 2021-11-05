@@ -6,7 +6,11 @@ import java.io.IOException;
  * Simulation interface Provide reports functions, for a day or a year
  */
 public abstract class Simulation {
+    protected String name;
+
     public void annual_report(String filename, ArrayList<ArrayList<Weather>> weather_year) {
+        System.out.println("Generate annual report for " +name+ " in " +filename);
+        
         ArrayList<Float> consumption = new ArrayList<>();
         ArrayList<Float> production = new ArrayList<>();
 
@@ -20,6 +24,8 @@ public abstract class Simulation {
     }
 
     public void daily_report(String filename, ArrayList<Weather> weather_day) {
+        System.out.println("Generate daily report for " +name+ " in " +filename);
+
         ArrayList<Float> consumption = new ArrayList<>();
         ArrayList<Float> production = new ArrayList<>();
 

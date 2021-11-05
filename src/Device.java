@@ -3,7 +3,8 @@ import java.util.ArrayList;
 public class Device extends Simulation {
     private TypeConsumption consumption;
 
-    public Device(TypeConsumption consumption) {
+    public Device(String name, TypeConsumption consumption) {
+        this.name = name;
         this.consumption = consumption;
     }
 

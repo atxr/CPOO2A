@@ -1,9 +1,11 @@
+
 import java.util.ArrayList;
 
 public class Producer extends Simulation {
     private TypeConsumption consumption;
 
-    public Producer(TypeConsumption consumption) {
+    public Producer(String name, TypeConsumption consumption) {
+        this.name = name;
         this.consumption = consumption;
     }
 

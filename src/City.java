@@ -1,7 +1,4 @@
 import java.util.ArrayList;
-
-import javax.swing.text.WrappedPlainView;
-
 /**
  * City class
  * Implements the Simulation interface
@@ -15,8 +12,9 @@ public class City extends Simulation {
     private ArrayList<Producer> producers;
 
     
-    public City() {
+    public City(String name) {
         this(new ArrayList<>(), new ArrayList<>());
+        this.name = name;
     }
     
     /**

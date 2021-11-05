@@ -4,8 +4,9 @@ public class House extends Simulation {
 
     private ArrayList<Device> devices;
 
-    public House() {
+    public House(String name) {
         devices = new ArrayList<>();
+        this.name = name;
     }
 
     ArrayList<Device> getDevices() {
@@ -36,7 +37,6 @@ public class House extends Simulation {
         for (Device d: devices) {
             sum += d.get_consumption_day(day, ws);
         }
-        System.out.println(sum);
         return sum;  
     }
 
