@@ -34,8 +34,9 @@ public class House extends Simulation {
     public float get_consumption_day(int day, ArrayList<Weather> ws) {
         float sum = 0;
         for (Device d: devices) {
-            sum += d.get_production_day(day, ws);
+            sum += d.get_consumption_day(day, ws);
         }
+        System.out.println(sum);
         return sum;  
     }
 

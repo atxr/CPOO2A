@@ -68,7 +68,7 @@ public class City extends Simulation {
     public float get_consumption_day(int d, ArrayList<Weather> ws) {
         float sum = 0;
         for (House h: consumers) {
-            sum += h.get_production_day(d, ws);
+            sum += h.get_consumption_day(d, ws);
         }
         return sum;  
     }

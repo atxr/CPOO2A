@@ -27,21 +27,22 @@ public class Weather {
     }
 
     public Weather(int day, int t) {
+        Random rn = new Random();
+
         this.day = day;
         this.t = t;
 
-        Random rn = new Random();
-        this.wind = rn.nextInt() % 2 == 0; // P(wind) = 1/2
+        this.wind = rn.nextDouble() < 0.5;
         
         // if cold season (september to april)
-        if ((day < 365/4) && (day > 365*3/4)) { 
-            this.cold = rn.nextInt() % 10 < 9; // P(cold) = 9/10
-            this.sun = (t > 8 * 60) && (t < 21 * 60) && (rn.nextInt() % 10 < 3); // sun between 8am and 9pm with P(sun) = 3/10
+        if ((day < 365/4) || (day > 365*3/4)) { 
+            this.cold = rn.nextDouble() < 0.9; // P(cold) = 9/10
+            this.sun = (t > 8 * 60) && (t < 21 * 60) && (rn.nextDouble() < 0.3); // sun between 8am and 9pm with P(sun) = 30%
         } 
         // else hot season 
         else {
-            this.cold = rn.nextInt() % 100 > 1; // P(cold) = 1%
-            this.sun = (t > 8 * 60) && (t < 21 * 60) && (rn.nextInt() % 100 < 5); // sun between 8am and 9pm with P(sun) = 95%
+            this.cold = rn.nextDouble() < 0.001; // P(cold) = 0.1%
+            this.sun = (t > 8 * 60) && (t < 21 * 60) && (rn.nextDouble() < 0.95); // sun between 8am and 9pm with P(sun) = 95%
         }
 
     }
