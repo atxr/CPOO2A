@@ -1,4 +1,8 @@
+package simulation;
 import java.util.ArrayList;
+
+import consumption.InjectionPoint;
+import production.Producer;
 /**
  * City class
  * Implements the Simulation interface
@@ -6,8 +10,8 @@ import java.util.ArrayList;
  */
 public class City extends Simulation {
     
-    /** List of all the houses in the city */
-    private ArrayList<House> consumers;
+    /** List of all the injection_points in the city */
+    private ArrayList<InjectionPoint> consumers;
     /** List of all the electricity producers of the city */
     private ArrayList<Producer> producers;
 
@@ -17,26 +21,16 @@ public class City extends Simulation {
      * @param name  the city name
      */
     public City(String name) {
-        this(new ArrayList<>(), new ArrayList<>());
+        consumers = new ArrayList<>();
+        producers = new ArrayList<>();
         this.name = name;
     }
     
     /**
-     * Basic constructor of a city, with consumers and producers as parameters
-     * 
-     * @param consumers
-     * @param producers
-     */
-    public City(ArrayList<House> consumers, ArrayList<Producer> producers) {
-        this.consumers = consumers;
-        this.producers = producers;
-    }
-
-    /**
      * Consumers getter
      * @return consumers list of the city
      */
-    public ArrayList<House> getConsumers() {
+    public ArrayList<InjectionPoint> getConsumers() {
         return this.consumers;
     }
 
@@ -49,11 +43,11 @@ public class City extends Simulation {
     }
 
     /**
-     * Add a house to the city
-     * @param house 
+     * Add a injection_point to the city
+     * @param injection_point 
      */
-    public void addHouse(House house) {
-        consumers.add(house);
+    public void addInjectionPoint(InjectionPoint injection_point) {
+        consumers.add(injection_point);
     }
 
     /**
@@ -67,7 +61,7 @@ public class City extends Simulation {
     @Override
     public float get_consumption_min(int t, Weather w) {
         float sum = 0;
-        for (House h: consumers) {
+        for (InjectionPoint h: consumers) {
             sum += h.get_consumption_min(t, w);
         }
         return sum;
@@ -85,7 +79,7 @@ public class City extends Simulation {
     @Override
     public float get_consumption_day(int d, ArrayList<Weather> ws) {
         float sum = 0;
-        for (House h: consumers) {
+        for (InjectionPoint h: consumers) {
             sum += h.get_consumption_day(d, ws);
         }
         return sum;  

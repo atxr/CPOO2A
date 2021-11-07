@@ -1,5 +1,10 @@
+package production;
 
 import java.util.ArrayList;
+
+import simulation.Simulation;
+import simulation.Weather;
+import type.TypeConsumption;
 
 public class Producer extends Simulation {
     /** Type of consumption of the producer */

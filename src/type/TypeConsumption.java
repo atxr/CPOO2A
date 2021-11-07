@@ -1,3 +1,7 @@
+package type;
+
+import simulation.Weather;
+
 /** Empty type interface that contains the periodic type and the external dependent type of consumption */
 public interface TypeConsumption {
     /**

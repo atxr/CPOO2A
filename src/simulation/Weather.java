@@ -1,3 +1,4 @@
+package simulation;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -14,15 +15,6 @@ public class Weather {
     int day;
     /** Minute number in the day */
     int t;
-
-    /** Default constructor */
-    Weather() {
-        wind = false;
-        sun = false;
-        cold = false;
-        day = 0;
-        t = 0;
-    }
 
     /**
      * Constructor which sets each external parameters

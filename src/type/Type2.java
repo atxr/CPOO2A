@@ -1,4 +1,7 @@
+package type;
 import java.util.function.Function;
+
+import simulation.Weather;
 /**
  * Type2 of TypeConsumption interface 
  * Represent a type of consumption, which depends on external parameters

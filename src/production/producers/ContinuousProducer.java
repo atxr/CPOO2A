@@ -1,6 +1,8 @@
+package production.producers;
 
-import java.util.ArrayList;
 import java.util.List;
+import production.Producer;
+import type.Type1;
 /** Represent a continuous device, with a constant production power */
 public class ContinuousProducer extends Producer {
     /**
@@ -8,6 +10,6 @@ public class ContinuousProducer extends Producer {
      * @param prod  value of the constant production
      */
     public ContinuousProducer(String name, float prod) {
-        super(name, new Type1(new ArrayList<Float>(List.of(prod))));
+        super(name, new Type1(List.of(prod)));
     }
 }

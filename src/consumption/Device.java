@@ -1,4 +1,9 @@
+package consumption;
 import java.util.ArrayList;
+
+import simulation.Simulation;
+import simulation.Weather;
+import type.TypeConsumption;
 
 /** Device class that represent a consumption device */
 public class Device extends Simulation {
