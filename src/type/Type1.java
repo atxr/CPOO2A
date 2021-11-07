@@ -28,7 +28,7 @@ public class Type1 implements TypeConsumption {
      * @param values    array of power value during the corresponding time in the periods array
      */
     public Type1(List<Integer> times, List<Float> values) {
-        this(generatePeriodicList(times, values));
+        this(getPowerList(times, values));
     }
 
     /**
@@ -37,7 +37,7 @@ public class Type1 implements TypeConsumption {
      * @param values    array of power value during the corresponding time in the periods array
      * @return          A power list built from the times and values array
      */
-    public static List<Float> generatePeriodicList(List<Integer> times, List<Float> values) {
+    public static List<Float> getPowerList(List<Integer> times, List<Float> values) {
         List<Float> power = new ArrayList<>();
         for (int t=0; t<times.size(); t++) {
             for (int k=0; k<times.get(t); k++) {
